@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Preferences Survey Results</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 20px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #ecf0f1;
+            text-align: center;
+        }
+        h1, h2 {
+            color: #f39c12;
+        }
+        .chart-container {
+            width: 50%;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+        }
+        canvas {
+            background: #fff;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Analyzing Music Preferences and Listening Habits – Survey Findings</h1>
+    <p>Music is a part of our everyday lives, affecting emotions, work productivity, and social interactions. This page summarizes the results of a survey researching music preferences, listening habits, and what affects musical choices.</p>
+
+    <h2>1. 🎸Favorite Music Genres</h2>
+    <p>Popular genres include Pop, Classical, Hip-hop/Rap, Electronic, Jazz, and Folk. It can be seen that most of the respondents prefer a combination of genres, which reflects varied musical tastes instead of strict loyalty to one category.</p>
+    <div class="chart-container">
+        <canvas id="genresChart"></canvas>
+    </div>
+
+    <h2>2. 🎤Favorite Artists and Bands</h2>
+    <p>The respondents gave a diverse list of favorite artists, ranging from globally known artists like Taylor Swift, Coldplay, Bruno Mars, and Sonu Nigam. The presence of different artists indicates that musical tastes are influenced by both global and local factors. The presence of both classical and contemporary artists indicates a taste for both new and old music.</p>
+    <div class="chart-container">
+        <canvas id="artistsChart"></canvas>
+    </div>
+
+    <h2>3. 📈Factors Influencing Music Choices</h2>
+    <p>When questioned about what most affects their music selection, the respondents stated:
+Mood – A major influence on what kind of music they listen to at any particular time.
+Lyrics – Most of the participants enjoy substantial and poetic lyrics.
+Social Media Trends – Sites such as Instagram and TikTok have a tangible influence on the popularity of songs and discovering them.
+
+These reactions highlight how music is regularly an emotional, social activity based on internal as well as outside influences.</p>
+    <div class="chart-container">
+        <canvas id="factorsChart"></canvas>
+    </div>
+
+    <h2>4. Preference for Songs vs. Albums</h2>
+    <p>Most of the respondents prefer to listen to individual songs rather than full albums. This supports current streaming behavior, where playlists and random tracks are prevalent. But a few respondents like the tightness of full albums, demonstrating that traditional album listening continues to have merit.</p>
+    <div class="chart-container">
+        <canvas id="albumsChart"></canvas>
+    </div>
+
+    <h2>5. Frequency of Music Listening</h2>
+    <p>A high percentage of respondents indicated daily listening to music, reflecting its pervasive integration into daily life. Music is now a ubiquitous presence, whether as a source of relaxation, motivation, or entertainment.</p>
+    <div class="chart-container">
+        <canvas id="frequencyChart"></canvas>
+    </div>
+
+    <h2>6. Time of Day for Listening</h2>    
+    <p>The preferred listening time ranged across respondents, with responses being:
+Evening and Late Night – An average time to relax and unwind.
+Morning – A few respondents utilize music to begin the day with vitality.
+No Specific Time – Emphasizing that listening to music tends to be impulsive and uninhibited.</p>
+        <canvas id="timeChart"></canvas>
+    </div>
+
+    <h2>7. Preferred Music Platforms</h2>
+    <p>Survey findings indicated that Spotify and YouTube are the most widely used websites for listening to music. Both websites offer ease of access, large music libraries, and tailored recommendations, and therefore are popular destinations for music enthusiasts.</p>
+    <div class="chart-container">
+        <canvas id="platformsChart"></canvas>
+    </div>
+
+    <h2>8. Role of Music in Daily Life</h2>
+    <p>Members noted a number of advantages of music, which include:
+Relaxation – Relaxing after a long day.
+Motivation – Increasing energy and enthusiasm.
+Focus – Increasing concentration when studying or working.
+Emotional Expression – Facilitating individuals to process emotions.
+These results confirm that music has a therapeutic and utilitarian function in daily life.</p>
+    <div class="chart-container">
+        <canvas id="helpsChart"></canvas>
+    </div>
+
+    <h2>9. Music During Activities</h2>
+    <p>Respondents indicated they listened to music while doing the following:
+Studying – Music assists some in focusing.
+Exercising – Energetic music motivates.
+Relaxing – Gentle melodies create a soothing mood.
+This suggests that music is frequently integrated into daily life in order to be more productive and enjoyable.
+Respondents gave conflicting answers when questioned about whether or not their musical tastes have evolved</p>
+    <div class="chart-container">
+        <canvas id="activitiesChart"></canvas>
+    </div>
+
+    <h2>10. Changes in Music Preferences Over Time</h2>
+    <p>Somewhat – Many indicated they observed incremental changes in what they liked.
+Yes – Some have experienced a total shift in taste.
+No – A few respondents have been consistent in their tastes.
+This inconsistency demonstrates that music tastes change according to individual development, exposure to new music, and shifting life experiences.</p>
+    <div class="chart-container">
+        <canvas id="changeChart"></canvas>
+    </div>
+
+    <h2>Conclusion</h2>
+    <p>The research finds that music is highly integrated into everyday existence, shaped by technology, emotion, and society. Streaming culture has transformed listening to music, while personal and social elements remain crucial.</p>
+
+    <script>
+        const genresCtx = document.getElementById('genresChart').getContext('2d');
+        new Chart(genresCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Pop', 'Rock', 'Classical', 'Hip-hop/Rap', 'Electronic', 'Jazz', 'Folk', 'Country'],
+                datasets: [{
+                    label: 'Number of Mentions',
+                    data: [46.2, 35.9, 52.6, 35.9, 25.6, 17.9, 29.5, 34.6],
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                }]
+            },
+        });
+
+        const artistsCtx = document.getElementById('artistsChart').getContext('2d');
+        new Chart(artistsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Taylor Swift', 'Coldplay', 'Bruno Mars', 'Sonu Nigam', 'Other'],
+                datasets: [{
+                    label: 'Number of Mentions',
+                    data: [10, 8, 7, 5, 12],
+                    backgroundColor: 'rgba(255, 159, 64, 0.6)',
+                }]
+            },
+        });
+
+        const factorsCtx = document.getElementById('factorsChart').getContext('2d');
+        new Chart(factorsCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Mood', 'Lyrics', 'Social Media Trends', 'Recommendations', 'Artist popularity', 'Otherfactors'],
+                datasets: [{
+                    data: [88.5, 59, 38.5, 16.7, 20.5, 6.5], 
+                    backgroundColor: ['#1abc9c', '#e74c3c', '#3498db'],
+                }]
+            },
+        });
+
+        const timeCtx = document.getElementById('timeChart').getContext('2d');
+        new Chart(timeCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Evening/Late Night', 'Morning', 'No Specific Time'],
+                datasets: [{
+                    data: [37.4, 2.6, 59], 
+                    backgroundColor: ['#3498db', '#e74c3c', '#f1c40f'],
+                }]
+            },
+        });
+
+        const changeCtx = document.getElementById('changeChart').getContext('2d');
+        new Chart(changeCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Yes', 'No', 'Somewhat'],
+                datasets: [{
+                    data: [45.5, 18.2, 36.4], 
+                    backgroundColor: ['#9b59b6', '#2ecc71', '#e67e22'],
+                }]
+            },
+        });
+
+	const albumsCtx = document.getElementById('albumsChart').getContext('2d');
+        new Chart(albumsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Individual songs', 'Both'],
+                datasets: [{
+                    label: 'Number of Mentions',
+                    data: [66.7, 33.3], 
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                }]
+            },
+        });
+
+
+	const frequencyCtx = document.getElementById('frequencyChart').getContext('2d');
+        new Chart(frequencyCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Daily', 'Several time a week', 'A few times a week', 'Less than once a week' , 'Rarely'],
+                datasets: [{
+                    label: 'Number of Mentions',
+                    data: [72.8, 12.8, 11.5, 1.3, 2.6], 
+                    backgroundColor: ['#9b59b6', '#2ecc71', '#e67e22', '#f1c40f', '#e74c3c'],
+                }]
+            },
+        });
+
+	const platformsCtx = document.getElementById('platformsChart').getContext('2d');
+        new Chart(platformsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Spotify', 'Youtube', 'Apple music', 'Amazon music', 'Local downloads', 'Jio saawan', 'Jio saavan'],
+                datasets: [{
+                    label: 'Number of Mentions',
+                    data: [51.3, 34.6, 3.8, 3.8, 3.8, 1.3, 1.3], 
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                }]
+            },
+        });
+
+	const helpsCtx = document.getElementById('helpsChart').getContext('2d');
+        new Chart(helpsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Relaxation', 'Focus', 'Motivation', 'Stress relief', 'Emotional expression', 'Overcoming strong emotions'],
+                datasets: [{
+                    label: 'Number of Mentions',
+                    data: [89.7, 38.5, 42.3, 69.2, 51.3, 1.3], 
+                    backgroundColor: 'rgba(75, 102, 255, 0.6)',
+                }]
+            },
+        });
+
+	const activitiesCtx = document.getElementById('activitiesChart').getContext('2d');
+        new Chart(activitiesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Studying', 'Exercising', 'Driving', 'Cooking', 'Relaxing', 'Walking', 'While eating', 'I have all genre of music playlists so I listen to them whenever I have a specific mood'],
+                datasets: [{
+                    label: 'Number of Mentions',
+                    data: [64.5, 60.5, 28.9, 32.9, 73.7, 1.3, 1.3, 1.3], 
+                    backgroundColor: 'rgba(255, 159, 64, 0.6)',
+                }]
+            },
+        });
+
+	
+	
+    </script>
+</body>
+</html>
